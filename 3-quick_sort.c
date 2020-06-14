@@ -1,4 +1,4 @@
-#include "sorth.h"
+#include "sort.h"
 /**
  * sort - sort the array.
  * @array: The array.
