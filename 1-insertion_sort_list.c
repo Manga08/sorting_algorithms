@@ -10,27 +10,27 @@
 
 void insertion_sort_list(listint_t **list)
 {
-  listint_t *aux = *list, *handler = aux;
+	listint_t *aux = *list, *handler = aux;
 
-        if (!*list)
-                return;
-        while (aux)
-        {
-                handler = aux;
-                while(handler->prev && (handler->prev->n > handler->n))
-                {
-                        handler->prev->next = handler->next;
-                        if (handler->next)
-                                handler->next->prev = handler->prev;
-                        handler->next = handler->prev;
-                        handler->prev = handler->next->prev;
-                        handler->next->prev = handler;
-                        if (handler->prev)
-                                handler->prev->next = handler;
-                        else
-                                *list = handler;
-                        print_list(*list);
-                }
-                aux = aux->next;
-        }
+	if (!*list)
+		return;
+	while (aux)
+	{
+		handler = aux;
+		while (handler->prev && (handler->prev->n > handler->n))
+		{
+			handler->prev->next = handler->next;
+			if (handler->next)
+				handler->next->prev = handler->prev;
+			handler->next = handler->prev;
+			handler->prev = handler->next->prev;
+			handler->next->prev = handler;
+			if (handler->prev)
+				handler->prev->next = handler;
+			else
+				*list = handler;
+			print_list(*list);
+		}
+		aux = aux->next;
+	}
 }
