@@ -18,7 +18,7 @@ void insertion_sort_list(listint_t **list)
 	while (aux)
 	{
 		aux = aux->next;
-		while (handler->prev && (handler->prev->n > handler->n))
+		while (handler->prev && handler->n < handler->prev->n)
 		{
 			handler->prev->next = handler->next;
 			if (handler->next)
