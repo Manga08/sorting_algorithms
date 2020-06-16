@@ -10,14 +10,14 @@
 
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *aux = *list, *handler = aux;
+	listint_t *aux = (*list)->next, *handler = aux;
 
 	if (!list || !*list || !(*list)->next)
 		return;
 
 	while (aux)
 	{
-		handler = aux;
+		aux = aux->next;
 		while (handler->prev && (handler->prev->n > handler->n))
 		{
 			handler->prev->next = handler->next;
@@ -32,6 +32,6 @@ void insertion_sort_list(listint_t **list)
 				*list = handler;
 			print_list(*list);
 		}
-		aux = aux->next;
+		handler = aux;
 	}
 }
